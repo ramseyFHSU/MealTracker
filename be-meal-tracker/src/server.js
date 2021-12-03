@@ -7,7 +7,8 @@ const app = express();
 app.use(express.json());
 
 routes.forEach((route) => {
-  app[route.method](route.path, route.handler);
+  // app[route.method](route.path, route.handler);
+  app[route.method]("/api" + route.path, route.handler);
 });
 
 const start = async () => {
